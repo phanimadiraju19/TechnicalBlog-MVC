@@ -1,18 +1,17 @@
-<!DOCType html>
+<!Doctype html>
 
 <html xmlns:th="http://thymeleaf.org">
-<head>
-    <title>
 
-    </title>
-
+<head th:replace="layout :: site-head">
+    <title>Spring MVC Application - User Posts</title>
 </head>
-<header th:replace="layout :: logged-out"></header>
-<body>
-<h1>All Technical Posts</h1>
 
+<header th:replace="layout :: logged-in"></header>
+
+<body>
+<h1>Welcome User. These are your posts</h1>
 <main id="posts">
-    <post th:each="p : ${posts}"><!--posts is the unique key from model -->
+    <post th:each="p : ${posts}">
         <h2 th:text="${p.title}"></h2>
         <i>Posted On: </i> <span th:text="${p.date}"></span>
         <div>
@@ -20,8 +19,5 @@
         </div>
     </post>
 </main>
-
 </body>
-
-
 </html>
